@@ -1,23 +1,21 @@
-# Picture here
+![syriatel](./images/syriatel.jpg)
 # SyriaTel Customer Churn Prediction Model
+
 ## Overview
 Build a classifier to predict whether a customer will ("soon") stop doing business with SyriaTel, a telecommunications company. They are interested in reducing how much money is lost because of customers who don't stick around very long. The question you can ask is: are there any predictable patterns here?
+
 ## Business Understanding
-Objective: Predict customer churn for SyriaTel and reduce the loss of revenue from customers leaving. We aim to create a model for churn prediction that helps the telecom company design targeted retention strategies.
+**Objective**: Predict customer churn for SyriaTel and reduce the loss of revenue from customers leaving. We aim to create a model for churn prediction that helps the telecom company design targeted retention strategies.
+**Stakeholder**: SyriaTel telecommunications company.
+**Problem**: Customers leave which causes Syriatel to lose money.
+**Key Questions**:
+* What are the main factors driving churn?
+* Can we identify churn-prone customers in advance?
+**Success Metrics**:
+1. Primary Metric: Recall - to identify potential churners and use strategies to prevent them from churning
+2. Secondary Metric: Precision - to avoid overspending on non-churners
+3. To evaluate and compare overall performance of our models, we will use AUC-ROC in addition to recall and precision.
 
-Stakeholder: SyriaTel telecommunications company.
-
-Problem: Customers leave which causes Syriatel to lose money.
-
-Key Questions:
-
-What are the main factors driving churn?
-Can we identify churn-prone customers in advance?
-Success Metrics:
-
-Primary Metric: Recall - to identify potential churners and use strategies to prevent them from churning
-Secondary Metric: Precision - to avoid overspending on non-churners
-To evaluate and compare overall performance of our models, we will use AUC-ROC in addition to recall and precision.
 ## Data Understanding
 The SyriaTel data set includes 21 features and 3333 customer entries. Since our goal is to predict customer churn, the target variable is churn. We will focus on account activity rather than the customer profile, so we will drop state, area code, and phone number.
 
@@ -44,6 +42,7 @@ Fields to drop
 * state
 * area code
 * phone number
+
 ## Data Preparation
 There are many highly correlated fields in the dataset which makes sense because the more minutes you have, the higher your bill will be. Therefore, we will only use 1 of each of the correlated fields. We will keep:
 * voicemail plan
@@ -51,8 +50,17 @@ There are many highly correlated fields in the dataset which makes sense because
 * total night charge
 * total eve charge
 * total day charge
+
 ## Analysis and Results/Recommendations
 
+**Comparison of 3 Models: Logistic Regression, Random Forest, and Decision Tree**
+![roc_comparison](./images/roc_comparison.png)
+![evaluation](./images/evaluation.png)
+
+**Comparison of Baseline Random Forest and New Random Forest after Hyperparameter Tuninge**
+![forest_comp](./images/forest_comp.png)
+
+**Feature Importance**
 ![Feature Importance](./images/feature_importance.png)
 
 The baseline and optimized model perform similarly so we have to revert to the business question to choose our final model. Because the highest priority is to identify at-risk customers, we will choose the baseline Random Forest model as it has the highest Recall on the testing data (84%). While the optimized version improved slightly in Accuracy, its lower Recall means it could miss more at-risk customers, making the baseline Random Forest the better choice for this goal.
