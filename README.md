@@ -58,14 +58,14 @@ There are many highly correlated fields in the dataset which makes sense because
 ## Analysis and Results/Recommendations
 
 **Comparison of 3 Models: Logistic Regression, Random Forest, and Decision Tree**
-![roc_comparison](./images/roc_comparison.png)
-![evaluation](./images/evaluation.png)
+![roc_comparison](./Images/roc_comparison.png)
+![evaluation](./Images/evaluation.png)
 
 **Comparison of Baseline Random Forest and New Random Forest after Hyperparameter Tuninge**
-![forest_comp](./images/forest_comp.png)
+![forest_comp](./Images/forest_comp.png)
 
 **Feature Importance**
-![Feature Importance](./images/feature_importance.png)
+![Feature Importance](./Images/feature_importance.png)
 
 The baseline and optimized model perform similarly so we have to revert to the business question to choose our final model. Because the highest priority is to identify at-risk customers, we will choose the baseline Random Forest model as it has the highest Recall on the testing data (84%). While the optimized version improved slightly in Accuracy, its lower Recall means it could miss more at-risk customers, making the baseline Random Forest the better choice for this goal.
 
@@ -98,7 +98,7 @@ For additional info, contact Hannah Dallas at [hrdallas1@gmail.com](mailto:hrdal
 ## Repository Structure
 
 ```
-├── images
+├── Images
 ├── Final.ipynb
 ├── Data
 ├── README.md
