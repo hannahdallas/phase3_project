@@ -1,4 +1,4 @@
-![syriatel](./images/syriatel.jpg)
+![syriatel](./Images/syriatel.jpg)
 # SyriaTel Customer Churn Prediction Model
 
 ## Overview
